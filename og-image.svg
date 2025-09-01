@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0%" stop-color="#0f1724" />
+      <stop offset="100%" stop-color="#071024" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)" />
+  <text x="72" y="180" font-family="Inter, Arial, sans-serif" font-size="64" fill="#e6eef8" font-weight="700">Joshua Diniega</text>
+  <text x="72" y="260" font-family="Inter, Arial, sans-serif" font-size="28" fill="#9aa4b2">Frontend Web Developer</text>
+  <g transform="translate(72,340)">
+    <rect width="420" height="64" rx="12" fill="#0b1220" opacity="0.6" />
+    <text x="24" y="40" font-family="Inter, Arial, sans-serif" font-size="20" fill="#4f8ef7">Portfolio — Projects, Skills, Contact</text>
+  </g>
+</svg>
