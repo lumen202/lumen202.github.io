@@ -1,13 +1,12 @@
 <template>
   <div>
     <SiteHeader :section="section" @navigate="section = $event"/>
-    <main class="container main">
-        <About v-if="section==='about'" :name="name" :summary="summary"/>
-        <Tech v-if="section==='skills'" :tech="tech"/>
-        <Projects v-if="section==='projects'" :projects="projects"/>
-        <Skills v-if="section==='skills'" :skills="skills"/>
-        <Contact v-if="section==='contact'" :contact="contact"/>
-    </main>
+  <main class="container main">
+  <About :name="name" :summary="summary"/>
+  <Skills :skills="skills" :tech="tech"/>
+  <Projects :projects="projects"/>
+    <Contact :contact="contact"/>
+  </main>
     <footer class="site-footer">
       <div class="container">
         <small>&copy; {{ new Date().getFullYear() }} {{ name }} — Built with Vue</small>
@@ -23,43 +22,91 @@ import About from './components/About.vue'
 import Projects from './components/Projects.vue'
 import Skills from './components/Skills.vue'
 import Contact from './components/Contact.vue'
-import Tech from './components/Tech.vue'
 
 const name = 'Joshua Diniega'
 const section = ref('about')
 
-const summary = `Full‑stack developer skilled in Laravel, Vue, and Java. I build maintainable REST APIs, performant SPAs, and desktop tools — emphasis on testability, documentation, and production‑ready deployments.`
+const summary = `Full-stack developer with experience building backend APIs, relational databases, and responsive frontends. Skilled with Laravel & MySQL on the server-side, Vue for client apps, and Java/JavaFX for desktop tooling. I focus on clean architecture, testability, and production-ready deployments.`
 
 const skills = [
-  'Laravel / PHP',
-  'Vue 3 (Composition API)',
-  'Java / JavaFX',
-  'RESTful APIs',
-  'SQL / Eloquent ORM',
-  'Docker / CI (GitHub Actions)'
+  {
+    category: 'Backend',
+    items: [
+      'Laravel (Eloquent, Middleware, Auth)',
+      'RESTful API design',
+      'MySQL / query optimization',
+      'Server-side testing & validation'
+    ]
+  },
+  {
+    category: 'Frontend',
+    items: [
+      'Vue 3 (Composition API)',
+      'Responsive, accessible UI',
+      'Vite / SPA performance',
+      'Component-driven architecture'
+    ]
+  },
+  {
+    category: 'Tools & Infra',
+    items: [
+      'Docker / containerization',
+    'CI / Automation',
+      'Pusher (real-time)',
+      'Debugging, logging, and observability'
+    ]
+  }
 ]
 
 const tech = [
-  'Laravel', 'Vue 3', 'Vite', 'PHP', 'MySQL', 'Postgres', 'Docker', 'GitHub Actions', 'Java', 'JavaFX'
+  'Laravel', 'MySQL', 'Vue 3', 'Vite', 'PHP', 'Docker', 'CI', 'Java', 'JavaFX', 'Eloquent ORM', 'Pusher'
 ]
 
 const projects = [
   {
-    title: 'JobBoard (example)',
-    subtitle: 'Laravel API • Vue SPA • Docker • CI',
-    description: 'Full‑stack job board: authenticated Laravel API, searchable listings, and a Vue SPA with server‑side pagination. Includes Dockerfile, tests, and CI release workflow.',
+    title: 'SMS Student Client',
+    subtitle: 'Desktop Client — Java, JavaFX, MySQL',
+    description: 'Production-quality desktop client for the Student Management System. Built with Java and JavaFX for a responsive, native-like experience. Designed for reliability in low-connectivity environments with local caching and secure synchronization to the central MySQL-backed service.',
+    live: '#',
+    repo: 'https://github.com/lumen202/sms-student',
+    group: 'SMS',
+    highlights: [
+      'Offline-first architecture with conflict-safe sync to central MySQL',
+      'Secure authentication, encrypted local cache, and client-side validation',
+      'Responsive JavaFX UI with accessibility and keyboard workflows',
+      'Unit and integration tests; build artifacts packaged for distribution'
+    ]
+  },
+  {
+    title: 'SMS Admin Console',
+    subtitle: 'Admin Console — Java, JavaFX, MySQL',
+    description: 'A dedicated administrative desktop console for managing students, schedules, and reports. The console integrates directly with the central MySQL datastore and provides role-based access, audit trails, bulk operations, and exportable reports for institutional workflows.',
+    live: '#',
+    repo: 'https://github.com/lumen202/sms_admin',
+    group: 'SMS',
+    highlights: [
+      'Role-based access control, audit logging, and secure admin flows',
+      'Advanced reporting (CSV/PDF) and scheduled exports',
+      'Bulk imports/exports, transaction-safe data operations, and backups',
+      'Designed for enterprise workflows and large datasets'
+    ]
+  },
+  {
+    title: 'Scheduling System',
+    subtitle: 'Scheduling Platform — Laravel API, Vue SPA',
+    description: 'A commercial-grade scheduling platform offering secure user access, searchable availability, and scalable scheduling APIs. Built with Laravel for the backend and a Vue SPA for the admin/user UI; includes production practices like containerized development, automated testing and CI-driven releases.',
     live: '#',
     repo: '#',
     highlights: [
-      'JWT auth & role-based access',
-      'Efficient DB queries and pagination',
-      'Dockerized dev + CI for automated builds'
+      'JWT authentication and role-based access control',
+      'Efficient database queries, server-side pagination, and indexing',
+      'Dockerized development environment and CI-driven build/release pipeline'
     ]
   }
 ]
 
 const contact = {
-  email: 'joshua@example.com',
+  email: 'jdiniega202@gmail.com',
   linkedin: 'https://www.linkedin.com/',
   location: 'Remote / Open to relocation'
 }

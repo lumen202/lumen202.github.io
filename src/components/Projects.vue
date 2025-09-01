@@ -1,8 +1,9 @@
 <template>
   <section id="projects">
-    <h2>Selected Projects</h2>
+    <h2>Featured Projects</h2>
     <div class="grid projects">
       <article class="card" v-for="p in projects" :key="p.title">
+        <div v-if="p.group" class="project-badge">Part of {{ p.group }}</div>
         <h3>{{ p.title }}</h3>
         <p class="muted">{{ p.subtitle }}</p>
         <p>{{ p.description }}</p>

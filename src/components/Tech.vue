@@ -13,9 +13,6 @@ const props = defineProps({ tech: Array })
 const { tech } = props
 </script>
 
-<style scoped>
-.tech-grid { display:flex; flex-wrap:wrap; gap:0.5rem }
-.tech-item { background:#0f1724; color:#fff; padding:0.4rem 0.6rem; border-radius:6px; font-size:0.9rem }
-</style>
+<!-- styles are handled globally in src/styles.css -->
 
 ```

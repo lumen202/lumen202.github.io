@@ -37,11 +37,9 @@ npm run build
 npm run preview
 ```
 
-CI Deploy
+CI / Deploy
 
-This repository contains a GitHub Actions workflow at `.github/workflows/pages.yml` that builds the site and deploys to GitHub Pages on pushes to `main`.
-
-Because this is a user/organization site (`lumen202.github.io`), deployment will publish to `https://lumen202.github.io` once the workflow completes. Confirm Pages settings in the repository Settings if you need to adjust branches or a custom domain.
+This repository can be built and deployed using any CI provider that runs `npm ci` and `npm run build`. For GitHub Pages you can either build locally and push the `dist/` folder to the publishing branch, or add a CI workflow that runs the build and publishes the `dist/` directory.
 
 Optional: Custom domain
 
@@ -58,4 +56,9 @@ If you'd like, I can:
 - Add a projects detail page and modal screenshots
 - Wire up a contact form with form handling (Netlify Forms / Formspree)
 - Convert this to a Vite-powered app (SFCs, build pipeline) if you prefer a modern dev workflow
+
+
+GitHub Pages CI
+
+This repository now contains a GitHub Actions workflow at `.github/workflows/deploy.yml` that runs `npm ci` and `npm run build`, then publishes the generated `dist/` folder to GitHub Pages on pushes to `main`.
 
