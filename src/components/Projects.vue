@@ -6,6 +6,9 @@
         <h3>{{ p.title }}</h3>
         <p class="muted">{{ p.subtitle }}</p>
         <p>{{ p.description }}</p>
+        <ul v-if="p.highlights" class="highlights">
+          <li v-for="h in p.highlights" :key="h">• {{ h }}</li>
+        </ul>
         <div class="card-footer">
           <a :href="p.live" target="_blank" rel="noopener">Live</a>
           <a :href="p.repo" target="_blank" rel="noopener">Code</a>
