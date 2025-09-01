@@ -59,5 +59,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./site
           publish_branch: gh-pages
+          # create/force an orphan branch to avoid fast-forward rejection
+          force_orphan: true
           allow_empty_commit: false
 
