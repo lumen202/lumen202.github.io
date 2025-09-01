@@ -1,0 +1,27 @@
+name: Debug runner setup
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  debug-setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Print runner info
+        run: |
+          echo "--- runner ---"
+          uname -a || true
+          echo "--- node/npm ---"
+          node -v || true
+          npm -v || true
+          echo "--- disk usage ---"
+          df -h || true
+          echo "--- env sample (filtered) ---"
+          env | grep -E 'GITHUB|RUNNER|HOME|USER|NODE' || true
+          echo "--- list repo root ---"
+          ls -la || true
