@@ -19,14 +19,29 @@ python3 -m http.server 8000
 # then open http://localhost:8000 in your browser
 ```
 
-Deploy to GitHub Pages (user/organization site)
+Vite development and deploy
 
-Because this repository is named `lumen202.github.io`, pushing the files to the `main` branch will publish the site at `https://lumen202.github.io` automatically.
+This repo has been converted to a Vite project. Use the following commands locally:
 
-Steps:
+```bash
+# install deps
+npm install
 
-1. Commit and push the repository to GitHub (main branch).
-2. Visit your repository's Settings -> Pages to confirm it's serving from the `main` branch (root). For user pages, GitHub will usually publish automatically.
+# dev server
+npm run dev
+
+# build for production
+npm run build
+
+# preview the production build
+npm run preview
+```
+
+CI Deploy
+
+This repository contains a GitHub Actions workflow at `.github/workflows/pages.yml` that builds the site and deploys to GitHub Pages on pushes to `main`.
+
+Because this is a user/organization site (`lumen202.github.io`), deployment will publish to `https://lumen202.github.io` once the workflow completes. Confirm Pages settings in the repository Settings if you need to adjust branches or a custom domain.
 
 Optional: Custom domain
 
